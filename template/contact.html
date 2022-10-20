@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form group">
+            <input type="text" class="form-control" name="address" placeholder="enter address"><br></br>
+            <input type="text" class="form-control" name="phone_number" placeholder="enter phone_number"><br></br>
+            <input type="text" class="form-control" name="email" placeholder="enter email"><br></br>
+
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead class="thread-dark">
+                <tr>
+                    <th scope="col">Address</th>
+                    <th scope="col">phone_number</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+
+
+    </div>
+         
+    
+    {% for shk in all_contact %}
+    <tr>
+        <td>{{shk.address}}</td>
+        <td>{{shk.phone_number}}</td>
+        <td>{{shk.email}}</td>
+        <td><a href="{% url 'update_contact' shk.id %}">update</a></td>
+        <td><a href="{% url 'delete_contact' shk.id %}">delete</a></td>
+
+
+    </tr>
+    
+    {% endfor %}
+</body>
+</html>

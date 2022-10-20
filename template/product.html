@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead class="thread-dark">
+                <tr>
+                    <th scope="col">product_name</th>
+                    <th scope="col">product_Description</th>
+                    <th scope="col">image</th>
+
+                    
+                </tr>
+            </thead>
+
+
+    </div>
+         
+    
+    {% for shk in all_product %}
+    <tr>
+        <td>{{shk.product_name}}</td>
+        <td>{{shk.product_description}}</td>
+        <td>{{shk.img}}</td>
+        <td><a href="{% url 'update_product' shk.id %}">update</a></td>
+        
+        <td><a href="{% url 'delete_product' shk.id %}">delete</a></td>
+
+
+    </tr>
+    
+    {% endfor %}
+</body>
+</html>
+
+ 

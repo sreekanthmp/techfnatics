@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method=POST enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    
+    <div class="container">
+        <table class="table">
+            <thead class="thread-dark">
+                <tr>
+                    <th scope="col">banner</th>
+                    <th scope="col">about_banner</th>
+                    <th scope="col">logo</th>
+
+                    
+                </tr>
+            </thead>
+
+
+    </div>
+         
+    
+    {% for shk in all_image %}
+    <tr>
+        <td>{{shk.banner_img}}</td>
+        <td>{{shk.about_banner_img}}</td>
+        <td>{{shk.logo_img}}</td>
+        <td><a href="{% url 'update_image' shk.id %}">update</a></td>
+        
+        <td><a href="{% url 'delete_image' shk.id %}">delete</a></td>
+
+
+    </tr>
+    
+    {% endfor %}
+         
+
+    
+</body>
+</html>

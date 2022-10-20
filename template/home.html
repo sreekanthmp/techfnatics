@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://www.techfnatic.com/ -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFnatic - Home Page</title>
+    <link rel="icon" type="image/x-icon" href="./TechFnatic - Home Page_files/logo.png">
+
+    <!-- Bootstrap-5.2 CSS -->
+    <link rel="stylesheet" href="{% static "styles/bootstrap5/bootstrap-5.2.css" %}">
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="{% static "styles/slick.css" %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "styles/base.css"  %}">
+    <link rel="stylesheet" href="{% static "styles/style.css"  %}">
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1084.0" data-gr-ext-installed="">
+    <!-- ==== Background Video =====  -->
+    <!-- <div class="bg-video">
+        <video autoplay muted loop id="myVideo">
+            <source src="./img/bg.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div> -->
+
+    <main id="main">
+        <!-- === Header (Navbar) -->
+        <header class="fixed-top">
+            <nav class="navbar navbar-expand-md p-0">
+                {% for sts in images %}
+                <div class="container">
+                    <a class="navbar-brand" href="https://www.techfnatic.com/"><img src="{{sts.logo_img.url}}" class="logo" alt="Logo Image"></a>
+                    <button class="navbar-toggler fs-24" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end mobile-nav" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <img src="./TechFnatic - Home Page_files/logo.png" class="logo" alt="Logo Image">
+                            <button type="button" class="btn-close fs-24" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body align-items-center">
+
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="https://www.techfnatic.com/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://www.techfnatic.com/#our-products">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://www.techfnatic.com/contact-us.html">Contact Us</a>
+                                </li>
+                                <li class="nav-item d-block d-md-none">
+                                    <a href="{{sts.whatsapp}}" target="_blank" class="nav-link"><img src="{% static "images/whatsapp.svg" %}" class="w-24px" alt="Whatsapp Icon"></a>
+                                </li>
+                            </ul>
+                            {% for sts in medias %}
+
+
+                            <div class="d-none d-md-block">
+                                <a href="{{sts.whatsapp}}" target="_blank"><img src="{% static "images/whatsapp.svg" %}" class="w-24px" alt="Whatsapp Icon"></a>
+                            </div>
+                            {% endfor %}
+
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </nav>
+        </header>
+
+        <!-- ==== Banner Section ===== -->
+        <section class="banner-section pt-5 mt-78px">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <!-- Banner left Col -->
+                    {% for shk in texts %}
+                    <div class="col-md-6 col-xl-5 text-center text-md-start">
+                        <h1 class="heading-1">{{shk.banner_heading}}</h1>
+                        <p class="me-lg-4 mt-2rem">{{shk.banner_text}}</p>
+                        <div>
+                            <a href="https://www.techfnatic.com/#our-products" class="btn btn-main">Our Products</a>
+                        </div>
+                    </div> <!-- /. Banner Left Col -->
+                    {% endfor %}
+
+                    <!-- Banner Right Col -->
+                    {% for sts in images %}
+                    <div class="col-md-6 mt-5 mt-md-0">
+                        <div class="">
+                            <img src="{{sts.banner_img.url}}" alt="Banner Image">
+                        </div>
+                    </div> <!-- /. Banner Right Col -->
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- ==== Product Section ===== -->
+        
+        
+        <section class="product-section pt-6rem" id="our-products">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="heading-2 position-relative d-inline-block pseudo-border-left pseudo-border-right">Our
+                        Products</h2>
+                        
+                </div>
+                
+
+                <div class="row pt-2rem justify-content-between align-items-center">
+                    
+                    <div class="col-12 pb-5">
+                        
+                        <div class="product-slider slick-initialized slick-slider">
+                        <div class="slick-list draggable">
+                           
+                            <div class="slick-track">
+                                {% for sts in product %}
+                            <div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 372px;">
+                                <div class="card product-card" style="width: 100%; display: inline-block;">
+                                <div class="card-head position-relative">
+                                
+                              
+                                    <img src="{{sts.img.url}}" class="card-img-top position-relative p-3" alt="Product Image">
+                                </div>
+                               
+                                <hr>
+                                <div class="card-body mt-2">
+                                    <h3 class="card-title text-white"><span class="highlighter">{{sts.product_name}}</span> - <br>
+                                        {{sts.product_description}}</h3>
+                                        
+                                    <a href="https://www.techfnatic.com/easy-ecom.html" class="btn d-flex align-items-center" tabindex="0">Know More <img src="{% static "images/arrow-right.svg" %}" class="ms-1 w-16px" alt="Arrow Icon"> </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            </div>
+                           
+                    </div>
+                         </div>   
+                            
+                               
+                                    
+                                  
+                            
+                                   
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <!-- ==== About us Section ===== -->
+        <section class="about-section pt-6rem pb-2rem">
+            <div class="container">
+                <div class="row gx-md-5 justify-content-between align-items-center">
+                    <!-- About left Col -->
+                    <div class="col-md-5">
+                        {% for sts in images %}
+                        <div class="">
+                            <img src="{{sts.about_banner_img.url}}" alt="Banner Image">
+                        </div>
+                        {% endfor %}
+                    </div> <!-- /. About Left Col -->
+
+                    <!-- About Right Col -->
+                    {% for sj in texts %}
+                    <div class="col-md-7 mt-5 mt-md-0">
+                        <h2 class="heading-2">About us</h2>
+                        <p class="me-lg-4 mt-3 fs-18">{{sj.about_us}}</p>
+                    </div> <!-- /. About Right Col -->
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ==== Footer Section ===== -->
+        <section class="footer-section pt-2rem pb-2rem">
+            <div class="container">
+                <!-- Footer Header -->
+                
+                <div class="row justify-content-between">
+                    {% for sts in images %}
+                    <div class="col-6">
+                        <img src="{{sts.logo_img.url}}" class="logo" alt="Logo Image">
+                    </div>
+                    {% endfor %}
+                    <div class="col-6">
+                       {% for sts in medias %}
+                        <ul class="social-links d-flex justify-content-end mb-0 list-unstyled">
+                            <li><a target="_blank" href={{sts.facebook}}><img src="{% static "images/facebook.svg" %}" alt="Facebook Icon"></a></li>
+                            <li><a target="_blank" href={{sts.linkedin}}><img src="{% static "images/linkedin.svg" %}" alt="Linkedin Icon"></a></li>
+                            <li><a target="_blank" href={{sts.whatsapp}}><img src="{% static "images/whatsapp.svg" %}" alt="Whatsapp Icon"></a></li>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Footer Content -->
+                <div class="row mt-4">
+                    <!-- First Col -->
+                    <div class="col-md-6 col-lg-4">
+                        <ul class="footer-links mb-0 list-unstyled">
+                            <li><a href="https://www.techfnatic.com/">Home</a></li>
+                            <li><a href="https://www.techfnatic.com/#our-products">Products</a></li>
+                            <li><a href="https://www.techfnatic.com/career-page.html">Career</a></li>
+                            <li><a href="https://www.techfnatic.com/contact-us.html">Contact Us</a></li>
+                            <li><a href="https://www.techfnatic.com/privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="https://www.techfnatic.com/terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+                    <!-- Second Col -->
+                    <div class="col-md-6 col-lg-4 mt-4 mt-lg-0">
+                        <ul class="footer-links footer-contact mb-0 list-unstyled">
+                            {% for sts in contacts %}
+                            <li class="d-flex align-items-start">
+                                <img src="{% static "images/envelope-fill.svg" %}" class="mt-1" alt="Message Icon">
+                                <div class="ms-2">
+                                    <h5>Email</h5>
+                                    <a href="sts.email">{{sts.email}}</a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            {% for sts in contacts %}
+                            <li class="d-flex align-items-start">
+                                <img src="{% static "images/telephone-fill.svg" %}" class="mt-1" alt="Message Icon">
+                                
+                                <div class="ms-2">
+                                    <h5>Phone</h5>
+                                    <a href="tel:sts.phone_number">{{sts.phone_number}}</a>
+                                </div>
+                                                                
+                            </li>
+                            {% endfor %}
+                            {% for sts in contacts %}
+                            
+                            <li class="d-flex align-items-start">
+                                <img src="{% static "images/geo-alt-fill.svg" %}" class="mt-1" alt="Message Icon">
+                                
+                                <div class="ms-2">
+                                    <h5>Address</h5>
+                                    <a href="sts.address" target="_blank">{{sts.address}}</a>
+                                </div>
+   
+                                
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Third Col -->
+                    <div class="col-md-12 col-lg-4 mt-4 mt-lg-0">
+                        <iframe src="./TechFnatic - Home Page_files/embed.html" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- ==== Bottom Footer Section ===== -->
+        <section class="bottom-footer py-3">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <p class="fw-500 fs-16">Copyright © 2022 </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- jQuery Js -->
+    <script src="./TechFnatic - Home Page_files/jQuery.js.download"></script>
+    <!-- Bootstrap-5.2 Js -->
+    <script src="{%static "styles/bootstrap5/bootstrap-5.2.js.download" %}"></script>
+    <!-- Slick Slider Js -->
+    <script src="./TechFnatic - Home Page_files/slick.js.download"></script>
+    <!-- Custom Js -->
+    <script src="./TechFnatic - Home Page_files/main.js.download"></script>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
