@@ -31,10 +31,6 @@ class Text(models.Model):
     banner_heading=models.CharField(max_length=100)
     banner_text=models.TextField()
 
-class User(models.Model):
-    username=models.CharField(max_length=100)
-    password=models.CharField(max_length=100)
-
     
 
 

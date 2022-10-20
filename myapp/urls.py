@@ -21,7 +21,7 @@ urlpatterns=[
     path('delete_product/<id>',views.delete_product,name='delete_product' ),
     path('update_product/<id>',views.update_product,name='update_product' ),
     path('update_image/<id>',views.update_image,name='update_image' ),
-        path('delete_image/<id>',views.delete_image,name='delete_image' ),
+    path('delete_image/<id>',views.delete_image,name='delete_image' ),
 
 
 

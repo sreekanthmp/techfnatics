@@ -1,16 +1,10 @@
 
-from email import message
-import statistics
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate,login
-# from requests import Response
 
 from myapp.forms import Contactform, Imageform, Mediaform, Productform,Textform
-from .models import Contact, Image, Products, Socialmedia,Text, User
+from .models import Contact, Image, Products, Socialmedia,Text
 
-@login_required()
 def home(request):
     contacts=Contact.objects.all()
     product=Products.objects.all()
